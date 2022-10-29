@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { HiOutlineMenu } from 'react-icons/hi';
 import { RiCloseLine } from 'react-icons/ri';
 
-import { logo } from '../assets';
+import { logo, logoNeon } from '../assets';
 import { links } from '../assets/constants';
 
 const NavLinks = ({handleClick}) => (
@@ -14,7 +14,6 @@ const NavLinks = ({handleClick}) => (
           key={link.name}
           to={link.to}
           className="flex flex-row items-center justify-start text-sm my-8 text-gray-400 font-medium hover:text-[#53ab8b] py-2 px-4 rounded-lg"
-          activeClassName="bg-white/10 text-[#53ab8b]"
           onClick={() => handleClick && handleClick()}
         >
           <link.icon className="w-6 h-6 mr-2"/> 
@@ -33,7 +32,7 @@ const Sidebar = () => {
   return ( 
     <>
       <div className="md:flex hidden flex-col w-[240] py-10 px-4 bg-[#03170f]" >
-        <img src={ logo } alt="logo" className="w-full h-14 object-contain" />
+        <img src={ logoNeon } alt="logo" className="w-full h-20 object-contain" />
         <NavLinks/>
       </div>
 

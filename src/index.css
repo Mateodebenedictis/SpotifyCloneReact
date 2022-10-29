@@ -4,12 +4,21 @@
 
 /* Active Navigation Link */
 .active {
-  @apply text-cyan-500;
+  @apply text-sky-50;
 }
 
 .active svg {
-  @apply text-cyan-500;
+  @apply text-sky-50;
 }
+
+.no-active {
+  @apply text-gray-400;
+}
+
+.no-active svg {
+  @apply text-gray-400;
+}
+
 
 .bar:nth-child(2) {
   animation-delay: 0.2s;
