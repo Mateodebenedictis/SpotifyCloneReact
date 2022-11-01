@@ -4,7 +4,7 @@ const RelatedSongs = ({ data ,isPlaying ,activeSong ,handlePauseClick ,handlePla
   
   return (
     <div className="flex flex-col">
-      <h1 className="font-bold text-3xl text-white">Related Songs:</h1>
+      <h1 className="font-bold text-3xl text-white mb-3">Related Songs:</h1>
       <div className="empty-6 w-full flex-col">
         {
           data?.map((song, i) => (
