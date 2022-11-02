@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { Route, Routes, Navigate } from 'react-router-dom';
 
@@ -6,6 +8,20 @@ import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, To
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
+
+  const [country, setCountry] = useState('');
+
+  useEffect(() => {
+    axios.get('https://geo.ipify.org/api/v2/country?apiKey=at_Xtv4ba8RphL5WXsX7wp6TOHFihZeI')
+       .then((res) => {
+           setCountry(res?.data?.location?.country);
+       })
+       .catch((err) => {
+           console.log(err);
+       });
+
+  }, [country]);
+
 
   return (
     <div className="relative flex">
@@ -19,7 +35,7 @@ const App = () => {
               <Route path="/" element={<Discover />} />
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-charts" element={<TopCharts />} />
-              <Route path="/around-you" element={<AroundYou />} />
+              <Route path="/around-you" element={<AroundYou country={country}/>} />
               <Route path="/artists/:id" element={<ArtistDetails />} />
               <Route path="/songs/:songid" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
